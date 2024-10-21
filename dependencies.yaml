@@ -561,10 +561,11 @@ dependencies:
           - *numpy
   python_run_cugraph_dgl:
     common:
-      - output_types: [conda, pyproject]
+      - output_types: [conda, pyproject, requirements]
         packages:
           - *numba
           - *numpy
+          - &pandas pandas
     specific:
       - output_types: [pyproject]
         matrices:
@@ -583,10 +584,11 @@ dependencies:
               - &cugraph_unsuffixed cugraph==24.12.*,>=0.0.0a0
   python_run_cugraph_pyg:
     common:
-      - output_types: [conda, pyproject]
+      - output_types: [conda, pyproject, requirements]
         packages:
           - *numba
           - *numpy
+          - *pandas
     specific:
       - output_types: [pyproject]
         matrices:
@@ -660,7 +662,7 @@ dependencies:
     common:
       - output_types: [conda, pyproject]
         packages:
-          - pandas
+          - *pandas
           - pytest
           - pytest-benchmark
           - pytest-cov
